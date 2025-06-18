@@ -235,6 +235,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (JSON.stringify(array3) === JSON.stringify(theArray)) {
         setTimeout(showPopup, 5 * 300);
       }
+       if (startIndex === 25 && currentWord !== randomWord) {
+        alert("you lost, the word was: " + randomWord.toUpperCase()");
+      }
     } else {
       const rowBoxes = Array.from(boxes).slice(startIndex, startIndex + 5); //explain
       rowBoxes.forEach((box) => {
