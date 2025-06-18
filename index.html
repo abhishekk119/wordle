@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Wordle Game</title>
+  </head>
+  <body>
+    <div class="instruction-wrapper">
+      <div class="instruction">
+        <button id="close-instruction">X</button>
+        <h2>How to Play Wordle</h2>
+        <ul>
+          <li>Guess the 5-letter word in 6 tries</li>
+          <li>Green means correct letter in correct position</li>
+          <li>Yellow means correct letter in wrong position</li>
+          <li>Gray means letter not in the word</li>
+        </ul>
+        <p class="messg">
+          Designed by ABHISHEK KABI - former engineer @ Amazon
+        </p>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="box-wrapper">
+        <h1 class="heading">WORDLE</h1>
+        <div class="row one">
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row two">
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row three">
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row four">
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row five">
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row six">
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-inner">
+              <div class="box-front"></div>
+              <div class="box-back"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="popup">
+      <div class="popup-content">
+        <button id="close-popup">X</button>
+        <h2>You Win! 🎉</h2>
+        <p>You guessed the word correctly!</p>
+      </div>
+    </div>
+
+    <script src="game.js" type="module"></script>
+  </body>
+</html>
