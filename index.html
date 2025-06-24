@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Progress Bar Loading</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #333; /* Dark grey background */
+        }
+        
+        .progress-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .progress-container {
+            width: 600px; /* Doubled width (from 300px) */
+            background-color: #444; /* Darker container for contrast */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            margin-bottom: 25px;
+        }
+        
+        .progress-bar {
+            height: 60px; /* Doubled height (from 30px) */
+            width: 0%;
+            background-color: #00FFFF; /* Aqua color */
+            text-align: center;
+            line-height: 60px; /* Adjusted for new height */
+            color: #333; /* Dark text for better contrast */
+            font-weight: bold;
+            font-size: 24px; /* Larger text */
+            border-radius: 12px;
+            transition: width 0.3s ease;
+        }
+        
+        .progress-text {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px; /* Larger text */
+            color: #EEE; /* Light text for dark background */
+            height: 30px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-content">
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar">0%</div>
+        </div>
+        <div class="progress-text" id="progressText">Initializing...</div>
+    </div>
+
+    <script>
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        let progress = 0;
+        
+        // Array of loading messages with their progress thresholds
+        const loadingMessages = [
+            { progress: 0, text: "Generating boxes..." },
+            { progress: 30, text: "Gathering words..." },
+            { progress: 70, text: "Finalizing setup..." }
+        ];
+        
+        const interval = setInterval(() => {
+            progress += 1;
+            progressBar.style.width = progress + '%';
+            progressBar.textContent = progress + '%';
+            
+            // Update text based on progress
+            for (let i = loadingMessages.length - 1; i >= 0; i--) {
+                if (progress >= loadingMessages[i].progress) {
+                    if (progressText.textContent !== loadingMessages[i].text) {
+                        progressText.textContent = loadingMessages[i].text;
+                    }
+                    break;
+                }
+            }
+            
+            if (progress >= 100) {
+                clearInterval(interval);
+                progressText.textContent = "Starting the game...";
+                
+                // After 5 seconds, show "Game ready!" for 1 second then redirect
+                setTimeout(() => {
+                    progressText.textContent = "Game ready!";
+                    
+                    // Redirect after 1 second (1000ms)
+                    setTimeout(() => {
+                        window.location.href = "game.html"; // Change this to your target URL
+                    }, 1000);
+                }, 5000);
+            }
+        }, 50);
+    </script>
+</body>
+</html>
