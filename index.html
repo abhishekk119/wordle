@@ -13,11 +13,12 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #333; /* Dark grey background */
+            background-color: #333;
         }
         
         .progress-content {
-            width: 100%;
+            width: 90%;
+            max-width: 400px; /* Maximum width for desktop */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -25,8 +26,8 @@
         }
         
         .progress-container {
-            width: 600px; /* Doubled width (from 300px) */
-            background-color: #444; /* Darker container for contrast */
+            width: 100%;
+            background-color: #444;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -34,14 +35,14 @@
         }
         
         .progress-bar {
-            height: 60px; /* Doubled height (from 30px) */
+            height: 30px;
             width: 0%;
-            background-color: #00FFFF; /* Aqua color */
+            background-color: #00FFFF;
             text-align: center;
-            line-height: 60px; /* Adjusted for new height */
-            color: #333; /* Dark text for better contrast */
+            line-height: 30px;
+            color: #333;
             font-weight: bold;
-            font-size: 24px; /* Larger text */
+            font-size: 14px;
             border-radius: 12px;
             transition: width 0.3s ease;
         }
@@ -49,10 +50,21 @@
         .progress-text {
             text-align: center;
             margin-top: 20px;
-            font-size: 24px; /* Larger text */
-            color: #EEE; /* Light text for dark background */
-            height: 30px;
+            font-size: 18px;
+            color: #EEE;
+            height: 24px;
             font-weight: 500;
+        }
+
+        @media (min-width: 768px) {
+            .progress-bar {
+                height: 35px;
+                line-height: 35px;
+                font-size: 16px;
+            }
+            .progress-text {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
