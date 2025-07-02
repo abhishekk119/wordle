@@ -233,8 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (JSON.stringify(array3) === JSON.stringify(theArray)) {
-        triggerConfetti();
-        setTimeout(showPopup, 5 * 300);
+        playWinEffects();
       }
       if (startIndex === 25 && currentWord !== randomWord) {
         alert("you lost, the word was: " + randomWord.toUpperCase());
@@ -294,6 +293,20 @@ function triggerConfetti() {
     });
   }, 150);
 }
+
+   function playWinEffects() {
+    // Play sound
+    const winSound = document.getElementById("win-sound");
+    winSound.currentTime = 0; // Rewind to start if already playing
+    winSound.play().catch((e) => console.log("Audio play failed:", e));
+
+    // Trigger confetti
+    triggerConfetti();
+
+    // Show popup
+    //document.getElementById("popup").style.display = "block";
+    setTimeout(showPopup, 5 * 300);
+  }
 
 // Call this when player wins (where you show the popup)
 
