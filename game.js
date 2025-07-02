@@ -166,6 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function comparison() {
+    let errorSoundCalled = false;
     const chunkSize = 5;
     const result = [];
 
@@ -245,8 +246,15 @@ document.addEventListener("DOMContentLoaded", () => {
         box.classList.add("shake");
         box.innerHTML = "";
       });
+      playErrorSound();
+      errorSoundCalled = true;
       currentIndex = startIndex;
       anArray.splice(startIndex, 5);
+    }
+    if (!errorSoundCalled) {
+      setTimeout(() => {
+        playDingSound();
+      }, 1500);
     }
   }
 
@@ -259,42 +267,41 @@ document.addEventListener("DOMContentLoaded", () => {
     alert(randomWord.slice(0, 3));
   }
 
-
   // Add this function to your game.js
-function triggerConfetti() {
-  // Configure to appear from bottom center (behind the game)
-  const confettiSettings = {
-    particleCount: 150,
-    spread: 70,
-    origin: { y: 1.2 }, // Comes from below the screen
-    startVelocity: 45,
-    gravity: 0.8,
-    ticks: 200
-  };
-  
-  // Fire from left and right to create a full burst
-  confetti({
-    ...confettiSettings,
-    angle: 60
-  });
-  
-  confetti({
-    ...confettiSettings,
-    angle: 120
-  });
-  
-  // Center burst
-  setTimeout(() => {
-    confetti({
-      particleCount: 100,
-      spread: 360,
-      origin: { y: 1.2 },
-      startVelocity: 35
-    });
-  }, 150);
-}
+  function triggerConfetti() {
+    // Configure to appear from bottom center (behind the game)
+    const confettiSettings = {
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 1.2 }, // Comes from below the screen
+      startVelocity: 45,
+      gravity: 0.8,
+      ticks: 200,
+    };
 
-   function playWinEffects() {
+    // Fire from left and right to create a full burst
+    confetti({
+      ...confettiSettings,
+      angle: 60,
+    });
+
+    confetti({
+      ...confettiSettings,
+      angle: 120,
+    });
+
+    // Center burst
+    setTimeout(() => {
+      confetti({
+        particleCount: 100,
+        spread: 360,
+        origin: { y: 1.2 },
+        startVelocity: 35,
+      });
+    }, 150);
+  }
+
+  function playWinEffects() {
     // Play sound
     const winSound = document.getElementById("win-sound");
     winSound.currentTime = 0; // Rewind to start if already playing
@@ -308,8 +315,21 @@ function triggerConfetti() {
     setTimeout(showPopup, 5 * 300);
   }
 
-// Call this when player wins (where you show the popup)
+  function playDingSound() {
+    const ding = document.getElementById("ding");
+    ding.currentTime = 0; // Rewind to start if already playing
+    ding.play().catch((e) => console.log("Audio play failed:", e));
+  }
 
+  function playErrorSound() {
+    const error = document.getElementById("error");
+    error.currentTime = 0; // Rewind to start if already playing
+    error.play().catch((e) => console.log("Audio play failed:", e));
+  }
+
+  // Call this when the player wins instead of directly showing popup
+
+  // Call this when player wins (where you show the popup)
 
   closePopupBtn.addEventListener("click", () => {
     popup.classList.remove("popup-visible");
