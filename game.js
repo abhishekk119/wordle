@@ -233,6 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (JSON.stringify(array3) === JSON.stringify(theArray)) {
+        triggerConfetti();
         setTimeout(showPopup, 5 * 300);
       }
       if (startIndex === 25 && currentWord !== randomWord) {
@@ -258,6 +259,44 @@ document.addEventListener("DOMContentLoaded", () => {
   function showHint() {
     alert(randomWord.slice(0, 3));
   }
+
+
+  // Add this function to your game.js
+function triggerConfetti() {
+  // Configure to appear from bottom center (behind the game)
+  const confettiSettings = {
+    particleCount: 150,
+    spread: 70,
+    origin: { y: 1.2 }, // Comes from below the screen
+    startVelocity: 45,
+    gravity: 0.8,
+    ticks: 200
+  };
+  
+  // Fire from left and right to create a full burst
+  confetti({
+    ...confettiSettings,
+    angle: 60
+  });
+  
+  confetti({
+    ...confettiSettings,
+    angle: 120
+  });
+  
+  // Center burst
+  setTimeout(() => {
+    confetti({
+      particleCount: 100,
+      spread: 360,
+      origin: { y: 1.2 },
+      startVelocity: 35
+    });
+  }, 150);
+}
+
+// Call this when player wins (where you show the popup)
+
 
   closePopupBtn.addEventListener("click", () => {
     popup.classList.remove("popup-visible");
