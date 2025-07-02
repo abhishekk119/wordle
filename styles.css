@@ -218,3 +218,24 @@ body {
 .messg {
   color: #333;
 }
+
+
+/* Add this to your existing CSS */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10; /* Behind wrapper but above body */
+  pointer-events: none;
+}
+
+.wrapper {
+  position: relative;
+  z-index: 20; /* Above the confetti */
+}
+
+#popup {
+  z-index: 30; /* Above both wrapper and confetti */
+}
