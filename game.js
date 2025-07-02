@@ -247,6 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
         box.innerHTML = "";
       });
       playErrorSound();
+      showMessage("NOT IN THE WORDLIST");
       errorSoundCalled = true;
       currentIndex = startIndex;
       anArray.splice(startIndex, 5);
@@ -327,6 +328,15 @@ document.addEventListener("DOMContentLoaded", () => {
     error.play().catch((e) => console.log("Audio play failed:", e));
   }
 
+    function showMessage(text) {
+    const messageDiv = document.getElementById("message");
+    messageDiv.textContent = text;
+    messageDiv.classList.add("show");
+
+    setTimeout(() => {
+      messageDiv.classList.remove("show");
+    }, 3000);
+  }
   // Call this when the player wins instead of directly showing popup
 
   // Call this when player wins (where you show the popup)
