@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
         box.innerHTML = "";
       });
       playErrorSound();
-      showMessage("NOT IN THE WORDLIST");
+      showMessage("NOT IN WORDLIST");
       errorSoundCalled = true;
       currentIndex = startIndex;
       anArray.splice(startIndex, 5);
